@@ -51,3 +51,5 @@ Thumbs.db
 lib/src/main/java/com/eblog/lib/utils/db/dao/*
 lib/objectbox-models/default.json
 lib/objectbox-models/default.json.bak
+
+local.properties

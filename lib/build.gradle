@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion 26
     buildToolsVersion "25.0.2"
@@ -33,3 +32,4 @@ dependencies {
     compile "${rxjava}"
     compile "${rxandroid}"
 }
+apply from: "../bintrayUpload1.gradle"

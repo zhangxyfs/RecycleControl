@@ -41,9 +41,9 @@ public class RecyclerControl {
     /**
      * 初始化
      *
-     * @param swipeRefreshLayout
-     * @param layoutManager
-     * @param onControlGetDataListListener
+     * @param swipeRefreshLayout 刷新控件
+     * @param layoutManager 线性布局管理
+     * @param onControlGetDataListListener 数据获取监听
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
                            LinearLayoutManager layoutManager, OnControlGetDataListListener onControlGetDataListListener) {
@@ -59,9 +59,9 @@ public class RecyclerControl {
     /**
      * 初始化
      *
-     * @param swipeRefreshLayout
-     * @param gridLayoutManager
-     * @param onControlGetDataListListener
+     * @param swipeRefreshLayout 刷新控件
+     * @param gridLayoutManager 网格布局管理
+     * @param onControlGetDataListListener 数据获取监听
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
                            GridLayoutManager gridLayoutManager, OnControlGetDataListListener onControlGetDataListListener) {
@@ -77,7 +77,7 @@ public class RecyclerControl {
     /**
      * 设置是否可以下拉刷新
      *
-     * @param b
+     * @param b 是否下拉刷新
      */
     public void setSwipeRefreshLayoutEnable(boolean b) {
         isSwipeRefreshLayoutEnable = b;
@@ -120,7 +120,7 @@ public class RecyclerControl {
     /**
      * 判断是否刷新/加载结束
      *
-     * @return
+     * @return 是否刷新/加载结束
      */
     public boolean isRefComplete() {
         return isRefComplete;
@@ -129,7 +129,7 @@ public class RecyclerControl {
     /**
      * 如果希望有上拉加载时使用
      *
-     * @return
+     * @return 滚动监听
      */
     public OnScrollListener getOnScrollListener() {
         return onScrollListener;
@@ -232,8 +232,8 @@ public class RecyclerControl {
     /**
      * 手势
      *
-     * @param recyclerView
-     * @param listener
+     * @param recyclerView recyclerView
+     * @param listener 手势监听
      */
     public void openGestureDetector(RecyclerView recyclerView, final GestureListener listener) {
         if (simpleOnGestureListener == null) {
@@ -276,6 +276,9 @@ public class RecyclerControl {
         void onScrolled(RecyclerView recyclerView, int dx, int dy);
     }
 
+    /**
+     * 加载状态
+     */
     public enum LOAD_STATE {
         scrolling,//滑动中
         scrollEnd//滑动结束
