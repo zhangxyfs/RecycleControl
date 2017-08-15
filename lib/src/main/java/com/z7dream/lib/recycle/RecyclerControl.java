@@ -20,6 +20,7 @@ import io.reactivex.functions.Function;
 
 /**
  * 非侵入式的recyclerView 控制器。
+ * noninvasive's recyclerview control.
  * 可以对带有SwipeRefreshLayout 和 recyclerView 页面进行下拉刷新和上拉加载，及无数据时候的控制
  */
 public class RecyclerControl {
