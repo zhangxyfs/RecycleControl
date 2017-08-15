@@ -1,4 +1,4 @@
-package com.z7dream.recyclecontrol;
+package com.z7dream.demo;
 
 import org.junit.Test;
 
