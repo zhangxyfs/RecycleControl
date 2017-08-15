@@ -68,13 +68,13 @@ dependencies {
 其他的按照bintrayUpload.gradle里头的内容写就行了。
 完成local.properties 的设置需要注意几个事情：
 
-#项目名称
-project.name=android_recycler_control
-#项目的groupId(包名)
-project.groupId=com.z7dream
-#项目的artifactId，这里需要跟项目的library名称一致，不然传到bintray的包和名字对不上会找不到（和项目名一样）
-project.artifactId=android_recycler_control
-
+#项目名称<\br>
+project.name=android_recycler_control<\br>
+#项目的groupId(包名)<\br>
+project.groupId=com.z7dream<\br>
+#项目的artifactId，这里需要跟项目的library名称一致，不然传到bintray的包和名字对不上会找不到（和项目名一样）<\br>
+project.artifactId=android_recycler_control<\br>
+<\br>
 最后需要执行以下几个命令：
 gradew javadocJar
 gradew sourcesJar
