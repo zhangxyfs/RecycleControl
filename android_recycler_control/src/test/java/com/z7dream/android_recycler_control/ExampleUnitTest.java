@@ -1,4 +1,4 @@
-package com.z7dream.lib;
+package com.z7dream.android_recycler_control;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.z7dream.lib.recycle;
+package com.z7dream.android_recycler_control;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;

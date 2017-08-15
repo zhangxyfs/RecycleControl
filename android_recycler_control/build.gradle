@@ -32,4 +32,4 @@ dependencies {
     compile "${rxjava}"
     compile "${rxandroid}"
 }
-apply from: "../bintrayUpload1.gradle"
+apply from: "../bintrayUpload.gradle"
