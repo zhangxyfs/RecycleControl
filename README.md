@@ -65,6 +65,20 @@ dependencies {
 ###### https://bintray.com/signup/oss 一定要在这里注册账号！！
 ###### https://bintray.com/signup/oss 一定要在这里注册账号！！
 ###### 重要的事情说两遍！！
-其他的按照bintrayUpload1.gradle里头的内容写就行了。
+其他的按照bintrayUpload.gradle里头的内容写就行了。
+完成local.properties 的设置需要注意几个事情：
+
+#项目名称
+project.name=android_recycler_control
+#项目的groupId(包名)
+project.groupId=com.z7dream
+#项目的artifactId，这里需要跟项目的library名称一致，不然传到bintray的包和名字对不上会找不到（和项目名一样）
+project.artifactId=android_recycler_control
+
+最后需要执行以下几个命令：
+gradew javadocJar
+gradew sourcesJar
+gradew install
+gradew bintrayUpload
 
 ps：因为注册的账号类型不对折腾了3天，唉..
