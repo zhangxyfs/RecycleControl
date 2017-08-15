@@ -53,6 +53,13 @@ dependencies {
     public void onRefresh() {
         recyclerControl.onRefresh();//调用刷新球
     }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        recyclerControl.destory();
+        recyclerControl = null;
+    }
 ```
 ##### 简单说下如何提交到jcenter：
 ###### https://bintray.com/signup/oss 一定要在这里注册账号！！
