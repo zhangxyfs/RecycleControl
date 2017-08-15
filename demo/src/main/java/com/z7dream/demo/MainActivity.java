@@ -63,4 +63,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerControl.O
     public void onRefresh() {
         recyclerControl.onRefresh();//调用刷新球
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        recyclerControl.destory();
+        recyclerControl = null;
+    }
 }
