@@ -8,6 +8,12 @@ dependencies {
 }
 ```
 ##### 调用：
+[ ![Download](https://api.bintray.com/packages/zxyjb212/maven/android_recycler_control/images/download.svg) ](https://bintray.com/zxyjb212/maven/android_recycler_control/_latestVersion)
+
+```
+   compile 'com.z7dream:android_recycler_control:0.0.1'
+```
+
 ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
