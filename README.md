@@ -9,12 +9,49 @@ dependencies {
 ```
 ##### 调用：
 ```java
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        RecyclerControl mRecyclerControl = new RecyclerControl(mSwipeRefreshLayout, mLinearLayoutManager, this);
-        mRecyclerControl.setSwipeRefreshLayoutEnable(false);//设置是否可以手动下拉刷新和上拉加载
+        setContentView(R.layout.activity_main);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        recyclerControl = new RecyclerControl(swipeRefreshLayout, linearLayoutManager, this);//初始化
+        recyclerView.addOnScrollListener(recyclerControl.getOnScrollListener());//滚动监听
+
+        handler = new Handler(Looper.myLooper());
+
+    }
+
+    @Override
+    public void onControlGetDataList(final boolean isRef) {
+        //todo get data
+        handler.postDelayed(new Runnable() {//模拟刷新数据
+            @Override
+            public void run() {
+                recyclerControl.getDataComplete(isRef);//刷新结束
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+    }
+
+    @Override
+    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+    }
+
+    @Override
+    public void onRefresh() {
+        recyclerControl.onRefresh();//调用刷新球
     }
 ```
 ##### 简单说下如何提交到jcenter：
