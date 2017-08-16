@@ -7,9 +7,19 @@ dependencies {
 		'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
 ```
-##### 调用：
+##### Download：
 [ ![Download](https://api.bintray.com/packages/zxyjb212/maven/android_recycler_control/images/download.svg) ](https://bintray.com/zxyjb212/maven/android_recycler_control/_latestVersion)
 
+Download the latest JAR or grab via Maven:
+```xml
+<dependency>
+  <groupId>com.z7dream</groupId>
+  <artifactId>android_recycler_control</artifactId>
+  <version>0.0.1</version>
+  <type>pom</type>
+</dependency>
+```
+or Gradle:
 ```
    compile 'com.z7dream:android_recycler_control:0.0.1'
 ```
