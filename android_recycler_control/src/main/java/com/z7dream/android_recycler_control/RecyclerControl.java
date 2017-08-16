@@ -34,7 +34,7 @@ public class RecyclerControl {
     private Disposable delay1Disposable, delay2Disposable;
     private GestureDetector mGestureDetector;
     private GestureDetector.SimpleOnGestureListener simpleOnGestureListener;
-    private boolean isSwipeRefreshLayoutEnable;
+    private boolean isSwipeRefreshLayoutEnable = true;
     private LOAD_STATE load_state;
     private EmptyViewControl emptyViewControl;
 
@@ -87,6 +87,17 @@ public class RecyclerControl {
     }
 
     /**
+     * 初始化 空白页面
+     *
+     * @param viewGroup          可以设置为swipeRefreshLayout
+     * @param errorClickListener 错误点击
+     */
+    public void initEmptyControl(ViewGroup viewGroup, EmptyViewControl.ErrorClickListener errorClickListener) {
+        emptyViewControl = new EmptyViewControl<>(viewGroup);
+        emptyViewControl.setOnErrorClickListener(errorClickListener);
+    }
+
+    /**
      * 设置是否可以下拉刷新
      *
      * @param b 是否下拉刷新
@@ -129,6 +140,24 @@ public class RecyclerControl {
         delayComplete();
     }
 
+    public void getDataEmpty(RecyclerView.Adapter adapter, int minAdapterCount) {
+        if (emptyViewControl == null) return;
+        if (adapter.getItemCount() <= minAdapterCount) {
+            emptyViewControl.displayErrorEmpty();
+        } else {
+            emptyViewControl.unDisplayError();
+        }
+    }
+
+    public void getDataError(RecyclerView.Adapter adapter, int minAdapterCount) {
+        if (emptyViewControl == null) return;
+        if (adapter.getItemCount() <= minAdapterCount) {
+            emptyViewControl.displayErrorNet();
+        } else {
+            emptyViewControl.unDisplayError();
+        }
+    }
+
     /**
      * 判断是否刷新/加载结束
      *
@@ -163,6 +192,11 @@ public class RecyclerControl {
         gridLayoutManager = null;
         onControlGetDataListListener = null;
         onScrollListener = null;
+
+        if (emptyViewControl != null) {
+            emptyViewControl.destory();
+            emptyViewControl = null;
+        }
     }
 
     private void delayGetData(final boolean isRef) {

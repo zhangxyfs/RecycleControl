@@ -3,6 +3,7 @@ package com.z7dream.android_recycler_control;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -25,6 +26,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
 
     private Drawable errorEmptyDrawable, errorNetDrawable;
     private String emptyTextStr, netTextStr;
+    private ErrorClickListener errorClickListener;
 
     /**
      * 初始化
@@ -53,10 +55,11 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
         childTextView.setLayoutParams(textLP);
 
         childLayout.addView(childTextView);
-        childLayout.addView(childLayout);
+        parent.addView(childLayout);
 
         childTextView.setTextColor(Color.BLACK);
         childTextView.setTextSize(COMPLEX_UNIT_SP, 16);
+        childTextView.setGravity(Gravity.CENTER);
 
         errorEmptyDrawable = parent.getResources().getDrawable(R.drawable.ic_error_empty);
         errorNetDrawable = parent.getResources().getDrawable(R.drawable.ic_error_net);
@@ -67,6 +70,25 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
         netTextStr = parent.getResources().getString(R.string.error_net_str);
 
         childLayout.setVisibility(View.GONE);
+        childLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (errorClickListener != null && childLayout.getVisibility() == View.VISIBLE) {
+                    errorClickListener.emptyClickListener();
+                    unDisplayError();
+                }
+
+            }
+        });
+    }
+
+    /**
+     * 错误点击监听
+     *
+     * @param errorClickListener 错误监听
+     */
+    public void setOnErrorClickListener(ErrorClickListener errorClickListener) {
+        this.errorClickListener = errorClickListener;
     }
 
     /**
@@ -175,7 +197,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
         outRecyclerLayout.setVisibility(View.GONE);
         childTextView.setText(emptyTextStr);
         childTextView.setCompoundDrawables(null, errorEmptyDrawable, null, null);
-        childTextView.setCompoundDrawablePadding(convertDipOrPx(4));
+        childTextView.setCompoundDrawablePadding(convertDipOrPx(8));
     }
 
     /**
@@ -188,7 +210,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
         outRecyclerLayout.setVisibility(View.GONE);
         childTextView.setText(netTextStr);
         childTextView.setCompoundDrawables(null, errorNetDrawable, null, null);
-        childTextView.setCompoundDrawablePadding(convertDipOrPx(4));
+        childTextView.setCompoundDrawablePadding(convertDipOrPx(8));
     }
 
     /**
@@ -211,6 +233,11 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
 
         errorEmptyDrawable = null;
         errorNetDrawable = null;
+        errorClickListener = null;
+    }
+
+    public interface ErrorClickListener {
+        void emptyClickListener();
     }
 
     private int convertDipOrPx(float dip) {
