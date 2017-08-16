@@ -20,9 +20,9 @@ import io.reactivex.functions.Function;
 
 
 /**
- * éä¾µå…¥å¼çš„recyclerView æ§åˆ¶å™¨ã€‚
+ * ·ÇÇÖÈëÊ½µÄrecyclerView ¿ØÖÆÆ÷¡£
  * noninvasive's recyclerview control.
- * å¯ä»¥å¯¹å¸¦æœ‰SwipeRefreshLayout å’Œ recyclerView é¡µé¢è¿›è¡Œä¸‹æ‹‰åˆ·æ–°å’Œä¸Šæ‹‰åŠ è½½ï¼ŒåŠæ— æ•°æ®æ—¶å€™çš„æ§åˆ¶
+ * ¿ÉÒÔ¶Ô´øÓĞSwipeRefreshLayout ºÍ recyclerView Ò³Ãæ½øĞĞÏÂÀ­Ë¢ĞÂºÍÉÏÀ­¼ÓÔØ£¬¼°ÎŞÊı¾İÊ±ºòµÄ¿ØÖÆ
  */
 public class RecyclerControl {
     private boolean isRefComplete = true, isLoadMoreComplete = true;
@@ -42,11 +42,11 @@ public class RecyclerControl {
 
 
     /**
-     * åˆå§‹åŒ–
+     * ³õÊ¼»¯
      *
-     * @param swipeRefreshLayout           åˆ·æ–°æ§ä»¶
-     * @param layoutManager                çº¿æ€§å¸ƒå±€ç®¡ç†
-     * @param onControlGetDataListListener æ•°æ®è·å–ç›‘å¬
+     * @param swipeRefreshLayout           Ë¢ĞÂ¿Ø¼ş
+     * @param layoutManager                ÏßĞÔ²¼¾Ö¹ÜÀí
+     * @param onControlGetDataListListener Êı¾İ»ñÈ¡¼àÌı
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
                            LinearLayoutManager layoutManager, OnControlGetDataListListener onControlGetDataListListener) {
@@ -60,11 +60,11 @@ public class RecyclerControl {
     }
 
     /**
-     * åˆå§‹åŒ–
+     * ³õÊ¼»¯
      *
-     * @param swipeRefreshLayout           åˆ·æ–°æ§ä»¶
-     * @param gridLayoutManager            ç½‘æ ¼å¸ƒå±€ç®¡ç†
-     * @param onControlGetDataListListener æ•°æ®è·å–ç›‘å¬
+     * @param swipeRefreshLayout           Ë¢ĞÂ¿Ø¼ş
+     * @param gridLayoutManager            Íø¸ñ²¼¾Ö¹ÜÀí
+     * @param onControlGetDataListListener Êı¾İ»ñÈ¡¼àÌı
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
                            GridLayoutManager gridLayoutManager, OnControlGetDataListListener onControlGetDataListListener) {
@@ -78,19 +78,19 @@ public class RecyclerControl {
     }
 
     /**
-     * åˆå§‹åŒ– ç©ºç™½é¡µé¢
+     * ³õÊ¼»¯ ¿Õ°×Ò³Ãæ
      *
-     * @param viewGroup å¯ä»¥è®¾ç½®ä¸ºswipeRefreshLayout
+     * @param viewGroup ¿ÉÒÔÉèÖÃÎªswipeRefreshLayout
      */
     public void initEmptyControl(ViewGroup viewGroup) {
         emptyViewControl = new EmptyViewControl<>(viewGroup);
     }
 
     /**
-     * åˆå§‹åŒ– ç©ºç™½é¡µé¢
+     * ³õÊ¼»¯ ¿Õ°×Ò³Ãæ
      *
-     * @param viewGroup          å¯ä»¥è®¾ç½®ä¸ºswipeRefreshLayout
-     * @param errorClickListener é”™è¯¯ç‚¹å‡»
+     * @param viewGroup          ¿ÉÒÔÉèÖÃÎªswipeRefreshLayout
+     * @param errorClickListener ´íÎóµã»÷
      */
     public void initEmptyControl(ViewGroup viewGroup, EmptyViewControl.ErrorClickListener errorClickListener) {
         emptyViewControl = new EmptyViewControl<>(viewGroup);
@@ -98,9 +98,9 @@ public class RecyclerControl {
     }
 
     /**
-     * è®¾ç½®æ˜¯å¦å¯ä»¥ä¸‹æ‹‰åˆ·æ–°
+     * ÉèÖÃÊÇ·ñ¿ÉÒÔÏÂÀ­Ë¢ĞÂ
      *
-     * @param b æ˜¯å¦ä¸‹æ‹‰åˆ·æ–°
+     * @param b ÊÇ·ñÏÂÀ­Ë¢ĞÂ
      */
     public void setSwipeRefreshLayoutEnable(boolean b) {
         isSwipeRefreshLayoutEnable = b;
@@ -108,7 +108,7 @@ public class RecyclerControl {
     }
 
     /**
-     * è®¾ç½®ä»€ä¹ˆæ—¶å€™åŠ è½½
+     * ÉèÖÃÊ²Ã´Ê±ºò¼ÓÔØ
      *
      * @param loadState {@link LOAD_STATE}
      */
@@ -117,7 +117,7 @@ public class RecyclerControl {
     }
 
     /**
-     * è°ƒç”¨åˆ·æ–°
+     * µ÷ÓÃË¢ĞÂ
      */
     public void onRefresh() {
         if (isRefComplete) {
@@ -127,9 +127,9 @@ public class RecyclerControl {
     }
 
     /**
-     * è·å–æ•°æ®å®Œæˆæ—¶è°ƒç”¨
+     * »ñÈ¡Êı¾İÍê³ÉÊ±µ÷ÓÃ
      *
-     * @param isRef æ˜¯å¦ä¸ºä¸‹æ‹‰åˆ·æ–°
+     * @param isRef ÊÇ·ñÎªÏÂÀ­Ë¢ĞÂ
      */
     public void getDataComplete(boolean isRef) {
         if (isRef) {
@@ -159,25 +159,25 @@ public class RecyclerControl {
     }
 
     /**
-     * åˆ¤æ–­æ˜¯å¦åˆ·æ–°/åŠ è½½ç»“æŸ
+     * ÅĞ¶ÏÊÇ·ñË¢ĞÂ/¼ÓÔØ½áÊø
      *
-     * @return æ˜¯å¦åˆ·æ–°/åŠ è½½ç»“æŸ
+     * @return ÊÇ·ñË¢ĞÂ/¼ÓÔØ½áÊø
      */
     public boolean isRefComplete() {
         return isRefComplete;
     }
 
     /**
-     * å¦‚æœå¸Œæœ›æœ‰ä¸Šæ‹‰åŠ è½½æ—¶ä½¿ç”¨
+     * Èç¹ûÏ£ÍûÓĞÉÏÀ­¼ÓÔØÊ±Ê¹ÓÃ
      *
-     * @return æ»šåŠ¨ç›‘å¬
+     * @return ¹ö¶¯¼àÌı
      */
     public OnScrollListener getOnScrollListener() {
         return onScrollListener;
     }
 
     /**
-     * é”€æ¯ï¼Œåœ¨onDestoryä¸­è°ƒç”¨
+     * Ïú»Ù£¬ÔÚonDestoryÖĞµ÷ÓÃ
      */
     public void destory() {
         if (delay1Disposable != null && !delay1Disposable.isDisposed()) {
@@ -255,7 +255,7 @@ public class RecyclerControl {
                 if (gridLayoutManager != null)
                     lastViewPos = gridLayoutManager.findLastVisibleItemPosition();
 
-                //å½“æœ€åä¸€ä¸ªitemçš„poså°äºæ€»itemæ•°é‡-1
+                //µ±×îºóÒ»¸öitemµÄposĞ¡ÓÚ×ÜitemÊıÁ¿-1
                 if (lastViewPos >= 0 && lastViewPos >= (recyclerView.getAdapter().getItemCount() - 1)) {
                     if (isLoadMoreComplete) {
                         isLoadMoreComplete = false;
@@ -276,10 +276,10 @@ public class RecyclerControl {
     }
 
     /**
-     * æ‰‹åŠ¿
+     * ÊÖÊÆ
      *
      * @param recyclerView recyclerView
-     * @param listener     æ‰‹åŠ¿ç›‘å¬
+     * @param listener     ÊÖÊÆ¼àÌı
      */
     public void openGestureDetector(RecyclerView recyclerView, final GestureListener listener) {
         if (simpleOnGestureListener == null) {
@@ -311,9 +311,9 @@ public class RecyclerControl {
 
     public interface OnControlGetDataListListener {
         /**
-         * è°ƒç”¨ç½‘è·¯æ•°æ®æ–¹æ³•
+         * µ÷ÓÃÍøÂ·Êı¾İ·½·¨
          *
-         * @param isRef æ˜¯å¦æ˜¯åˆ·æ–°
+         * @param isRef ÊÇ·ñÊÇË¢ĞÂ
          */
         void onControlGetDataList(boolean isRef);
 
@@ -323,10 +323,10 @@ public class RecyclerControl {
     }
 
     /**
-     * åŠ è½½çŠ¶æ€
+     * ¼ÓÔØ×´Ì¬
      */
     public enum LOAD_STATE {
-        scrolling,//æ»‘åŠ¨ä¸­
-        scrollEnd//æ»‘åŠ¨ç»“æŸ
+        scrolling,//»¬¶¯ÖĞ
+        scrollEnd//»¬¶¯½áÊø
     }
 }

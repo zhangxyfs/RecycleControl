@@ -14,7 +14,7 @@ import com.z7dream.R;
 import static android.util.TypedValue.COMPLEX_UNIT_SP;
 
 /**
- * ç©ºç™½é¡µæ§åˆ¶
+ * ¿Õ°×Ò³¿ØÖÆ
  * Created by Z7Dream on 2017/8/16 14:16.
  * Email:zhangxyfs@126.com
  */
@@ -29,18 +29,18 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     private ErrorClickListener errorClickListener;
 
     /**
-     * åˆå§‹åŒ–
+     * ³õÊ¼»¯
      *
-     * @param outRecyclerLayout recyclerViewæˆ–è€…listviewå¤–å±‚layout
+     * @param outRecyclerLayout recyclerView»òÕßlistviewÍâ²ãlayout
      */
     public EmptyViewControl(VIEW outRecyclerLayout) {
         init(outRecyclerLayout);
     }
 
     /**
-     * åˆå§‹åŒ–
+     * ³õÊ¼»¯
      *
-     * @param layout recyclerViewæˆ–è€…listviewå¤–å±‚layout
+     * @param layout recyclerView»òÕßlistviewÍâ²ãlayout
      */
     private void init(VIEW layout) {
         if (parent != null) return;
@@ -83,19 +83,19 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * é”™è¯¯ç‚¹å‡»ç›‘å¬
+     * ´íÎóµã»÷¼àÌı
      *
-     * @param errorClickListener é”™è¯¯ç›‘å¬
+     * @param errorClickListener ´íÎó¼àÌı
      */
     public void setOnErrorClickListener(ErrorClickListener errorClickListener) {
         this.errorClickListener = errorClickListener;
     }
 
     /**
-     * è®¾ç½®æ–‡æœ¬ä¿¡æ¯
+     * ÉèÖÃÎÄ±¾ĞÅÏ¢
      *
-     * @param color é¢œè‰²
-     * @param size  å­—å·
+     * @param color ÑÕÉ«
+     * @param size  ×ÖºÅ
      */
     public void setTextViewInfo(int color, float size) {
         if (childTextView == null) return;
@@ -107,10 +107,10 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * è®¾ç½®æ–‡æœ¬ä¿¡æ¯
+     * ÉèÖÃÎÄ±¾ĞÅÏ¢
      *
-     * @param color é¢œè‰²
-     * @param sp    å­—å·
+     * @param color ÑÕÉ«
+     * @param sp    ×ÖºÅ
      */
     public void setTextViewInfo(int color, int sp) {
         if (childTextView == null) return;
@@ -122,9 +122,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * adapteræ— æ•°æ®æ—¶å€™
+     * adapterÎŞÊı¾İÊ±ºò
      *
-     * @param content æ–‡å­—å†…å®¹
+     * @param content ÎÄ×ÖÄÚÈİ
      */
     public void setErrorEmptyStr(String content) {
         if (!TextUtils.isEmpty(content)) {
@@ -133,9 +133,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * adapterç½‘ç»œé”™è¯¯çš„æ—¶å€™
+     * adapterÍøÂç´íÎóµÄÊ±ºò
      *
-     * @param content æ–‡å­—å†…å®¹
+     * @param content ÎÄ×ÖÄÚÈİ
      */
     public void setErrorNetStr(String content) {
         if (!TextUtils.isEmpty(content)) {
@@ -144,9 +144,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * è®¾ç½®æ— æ•°æ®æ—¶å€™çš„å›¾ç‰‡èµ„æº
+     * ÉèÖÃÎŞÊı¾İÊ±ºòµÄÍ¼Æ¬×ÊÔ´
      *
-     * @param resId å›¾ç‰‡èµ„æºid
+     * @param resId Í¼Æ¬×ÊÔ´id
      */
     public void setErrorEmptyDrawable(int resId) {
         if (errorEmptyDrawable == null || parent == null) return;
@@ -155,9 +155,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * è®¾ç½®æ— æ•°æ®æ—¶å€™çš„å›¾ç‰‡èµ„æº
+     * ÉèÖÃÎŞÊı¾İÊ±ºòµÄÍ¼Æ¬×ÊÔ´
      *
-     * @param drawable å›¾ç‰‡drawable
+     * @param drawable Í¼Æ¬drawable
      */
     public void setErrorEmptyDrawable(Drawable drawable) {
         if (errorEmptyDrawable == null) return;
@@ -166,9 +166,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * è®¾ç½®ç½‘ç»œé”™è¯¯æ—¶å€™çš„å›¾ç‰‡èµ„æº
+     * ÉèÖÃÍøÂç´íÎóÊ±ºòµÄÍ¼Æ¬×ÊÔ´
      *
-     * @param resId å›¾ç‰‡èµ„æºid
+     * @param resId Í¼Æ¬×ÊÔ´id
      */
     public void setErrorNetDrawable(int resId) {
         if (errorNetDrawable == null || parent == null) return;
@@ -177,9 +177,9 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * è®¾ç½®ç½‘ç»œé”™è¯¯æ—¶å€™çš„å›¾ç‰‡èµ„æº
+     * ÉèÖÃÍøÂç´íÎóÊ±ºòµÄÍ¼Æ¬×ÊÔ´
      *
-     * @param drawable å›¾ç‰‡drawable
+     * @param drawable Í¼Æ¬drawable
      */
     public void setErrorNetDrawable(Drawable drawable) {
         if (errorNetDrawable == null) return;
@@ -188,7 +188,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * æ˜¾ç¤ºç©ºæ•°æ®
+     * ÏÔÊ¾¿ÕÊı¾İ
      */
     public void displayErrorEmpty() {
         if (childLayout == null || outRecyclerLayout == null || childTextView == null || errorEmptyDrawable == null)
@@ -201,7 +201,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * æ˜¾ç¤ºç½‘ç»œé”™è¯¯
+     * ÏÔÊ¾ÍøÂç´íÎó
      */
     public void displayErrorNet() {
         if (childLayout == null || outRecyclerLayout == null || childTextView == null || errorEmptyDrawable == null)
@@ -214,7 +214,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * å–æ¶ˆæ˜¾ç¤ºé”™è¯¯é¡µé¢
+     * È¡ÏûÏÔÊ¾´íÎóÒ³Ãæ
      */
     public void unDisplayError() {
         if (childLayout == null || outRecyclerLayout == null) return;
@@ -223,7 +223,7 @@ public class EmptyViewControl<VIEW extends ViewGroup> {
     }
 
     /**
-     * é”€æ¯
+     * Ïú»Ù
      */
     public void destory() {
         parent = null;
