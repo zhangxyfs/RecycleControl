@@ -16,14 +16,14 @@ or Gradle:
 ```
    compile 'com.z7dream:android_recycler_control:0.0.1'
 ```
-#### 使用了第三方库：
-```
+#### How do I use RecycleControl?
+```gradle
 dependencies {
-		'io.reactivex.rxjava2:rxjava:2.x.y'
-		'io.reactivex.rxjava2:rxandroid:2.0.1'
+	'io.reactivex.rxjava2:rxjava:2.x.y'
+	'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
 ```
-#### How do I use RecycleControl?
+
 ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
