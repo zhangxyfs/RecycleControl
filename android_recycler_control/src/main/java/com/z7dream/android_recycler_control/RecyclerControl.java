@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +36,7 @@ public class RecyclerControl {
     private GestureDetector.SimpleOnGestureListener simpleOnGestureListener;
     private boolean isSwipeRefreshLayoutEnable;
     private LOAD_STATE load_state;
+    private EmptyViewControl emptyViewControl;
 
     public static final int[] COLORS = {0xff2196F3};
 
@@ -42,8 +44,8 @@ public class RecyclerControl {
     /**
      * 初始化
      *
-     * @param swipeRefreshLayout 刷新控件
-     * @param layoutManager 线性布局管理
+     * @param swipeRefreshLayout           刷新控件
+     * @param layoutManager                线性布局管理
      * @param onControlGetDataListListener 数据获取监听
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
@@ -60,8 +62,8 @@ public class RecyclerControl {
     /**
      * 初始化
      *
-     * @param swipeRefreshLayout 刷新控件
-     * @param gridLayoutManager 网格布局管理
+     * @param swipeRefreshLayout           刷新控件
+     * @param gridLayoutManager            网格布局管理
      * @param onControlGetDataListListener 数据获取监听
      */
     public RecyclerControl(SwipeRefreshLayout swipeRefreshLayout,
@@ -73,6 +75,15 @@ public class RecyclerControl {
         onScrollListener = new OnScrollListener();
         swipeRefreshLayout.setColorSchemeColors(COLORS);
         load_state = LOAD_STATE.scrolling;
+    }
+
+    /**
+     * 初始化 空白页面
+     *
+     * @param viewGroup 可以设置为swipeRefreshLayout
+     */
+    public void initEmptyControl(ViewGroup viewGroup) {
+        emptyViewControl = new EmptyViewControl<>(viewGroup);
     }
 
     /**
@@ -234,7 +245,7 @@ public class RecyclerControl {
      * 手势
      *
      * @param recyclerView recyclerView
-     * @param listener 手势监听
+     * @param listener     手势监听
      */
     public void openGestureDetector(RecyclerView recyclerView, final GestureListener listener) {
         if (simpleOnGestureListener == null) {

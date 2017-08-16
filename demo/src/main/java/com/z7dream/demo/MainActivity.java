@@ -8,7 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.z7dream.lib.recycle.RecyclerControl;
+import com.z7dream.android_recycler_control.RecyclerControl;
+
 
 public class MainActivity extends AppCompatActivity implements RecyclerControl.OnControlGetDataListListener, SwipeRefreshLayout.OnRefreshListener {
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerControl.O
 
         handler = new Handler(Looper.myLooper());
 
+        onRefresh();
     }
 
     @Override
