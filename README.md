@@ -14,7 +14,7 @@ Download the latest JAR or grab via Maven:
 ```
 or Gradle:
 ```
-   compile 'com.z7dream:android_recycler_control:0.0.1'
+   compile 'com.z7dream:android_recycler_control:0.0.2'
 ```
 #### How do I use RecycleControl?
 ```gradle
